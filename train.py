@@ -362,7 +362,8 @@ with tf.Session() as sess:
             epoch_test_slot, epoch_test_intent, epoch_test_err,test_pred_intent,test_correct_intent,test_pred_slot,test_correct_slot,test_words,test_gate = valid(os.path.join(full_test_path, arg.input_file), os.path.join(full_test_path, arg.slot_file), os.path.join(full_test_path, arg.intent_file))
             with open('test_out.pkl', 'wb') as f:
                 pkl.dump(
-                    (epoch_test_slot, epoch_test_intent, epoch_test_err,test_pred_intent,test_correct_intent,test_pred_slot,test_correct_slot,test_words,test_gate)
+                    (epoch_test_slot, epoch_test_intent, epoch_test_err,test_pred_intent,test_correct_intent,test_pred_slot,test_correct_slot,test_words,test_gate),
+                    f
                 )
             if epoch_valid_err <= valid_err:
                 no_improve += 1
